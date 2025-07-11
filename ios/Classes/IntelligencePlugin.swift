@@ -1,6 +1,7 @@
 import Flutter
 import UIKit
 
+@available(iOS 16.0, *)
 public class IntelligencePlugin: NSObject, FlutterPlugin {
   public static let notifier = SelectionsPushOnlyStreamHandler()
   
