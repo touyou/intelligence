@@ -12,4 +12,9 @@ class Intelligence {
   /// in OS flows to the Dart layer.
   Stream<String> selectionsStream() =>
       IntelligencePlatform.instance.selectionsStream();
+
+  /// Retrieves a cached value for the given [key] from the native layer.
+  /// Returns `null` if the key does not exist.
+  Future<String?> getCachedValue(String key) =>
+      IntelligencePlatform.instance.getCachedValue(key);
 }

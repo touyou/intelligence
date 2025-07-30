@@ -34,6 +34,15 @@ class MethodChannelIntelligence extends IntelligencePlatform {
   @override
   Stream<String> selectionsStream() =>
       linksChannel.receiveBroadcastStream().map((item) => item.toString());
+
+
+  /// Retrieves a cached value for the given [key] from the native layer.
+  /// Returns `null` if the key does not exist.
+  @override
+  Future<String?> getCachedValue(String key) async {
+    final result = await methodChannel.invokeMethod<String>('getCachedValue', key);
+    return result;
+  }
 }
 
 extension on List<Representable> {

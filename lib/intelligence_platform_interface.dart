@@ -33,4 +33,8 @@ abstract class IntelligencePlatform extends PlatformInterface {
   Stream<String> selectionsStream() {
     throw UnimplementedError('selectionsStream() has not been implemented.');
   }
+
+  Future<String?> getCachedValue(String key) {
+    throw UnimplementedError('getCachedValue() has not been implemented.');
+  }
 }
