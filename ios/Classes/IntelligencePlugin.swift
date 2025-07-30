@@ -56,7 +56,7 @@ public class IntelligencePlugin: NSObject, FlutterPlugin {
       return
     }
 
-    if let value = UserDefaults.standard.string(forKey: cachedKey(key)) {
+    if let value = UserDefaults.standard.string(forKey: IntelligencePlugin.cachedKey(key)) {
       result(value)
     } else {
       result(nil)
