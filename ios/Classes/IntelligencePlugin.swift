@@ -56,11 +56,19 @@ public class IntelligencePlugin: NSObject, FlutterPlugin {
       return
     }
 
-    if let value = UserDefaults.standard.string(forKey: key) {
+    if let value = UserDefaults.standard.string(forKey: cachedKey(key)) {
       result(value)
     } else {
       result(nil)
     }
+  }
+
+  public static func setCachedValue(_ key: String, value: String) {
+    UserDefaults.standard.set(value, forKey: cachedKey(key))
+  }
+
+  private func cachedKey(_ key: String) -> String {
+    return "intelligence_cache_\(key)"
   }
 
   public static let storage = IntelligenceStorage()
