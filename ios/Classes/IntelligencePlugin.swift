@@ -63,7 +63,7 @@ public class IntelligencePlugin: NSObject, FlutterPlugin {
     }
   }
 
-  public static func setCached(_ value: String, forKey key: String) {
+  public static func setCached(_ value: String?, forKey key: String) {
     UserDefaults.standard.set(value, forKey: cachedKey(key))
   }
 
