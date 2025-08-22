@@ -23,6 +23,9 @@ class MethodChannelIntelligence extends IntelligencePlatform {
   /// surface them to the users at proper OS flows.
   @override
   Future<void> populate(List<Representable> items) async {
+    if (!Platform.isIOS) {
+      return;
+    }
     await methodChannel.invokeMethod<bool>(
       'populate',
       items.toJson(),
@@ -40,6 +43,9 @@ class MethodChannelIntelligence extends IntelligencePlatform {
   /// Returns `null` if the key does not exist.
   @override
   Future<String?> getCachedValue(String key) async {
+    if (!Platform.isIOS) {
+      return null;
+    }
     final result = await methodChannel.invokeMethod<String>('getCachedValue', key);
     return result;
   }
