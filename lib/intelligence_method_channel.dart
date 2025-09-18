@@ -36,8 +36,8 @@ class MethodChannelIntelligence extends IntelligencePlatform {
   /// Deserializes and notifies about selections made by the user
   /// in OS flows.
   @override
-  Stream<String> selectionsStream() =>
-      linksChannel.receiveBroadcastStream().map((item) => item.toString());
+  Stream<String> selectionsStream() => Platform.isIOS ?
+      linksChannel.receiveBroadcastStream().map((item) => item.toString()) : const Stream.empty();
 
 
   /// Retrieves a cached value for the given [key] from the native layer.
